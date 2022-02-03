@@ -9,6 +9,10 @@ app.use(express.json()); // Make sure it comes back as json
 mongoose.connect('mongodb+srv://Saumya1309:Saumya555@comp3123.krhpr.mongodb.net/sample_mflix?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
+}).then(success => {
+  console.log(`MongoDB connected ${success}`)
+}).catch(err => {
+  console.log(`Error while MongoDB connection ${err}`)
 });
 
 app.use(employeeRouter);

@@ -14,7 +14,7 @@ app.get('/employees', async (req, res) => {
   //const employees = await employeeModel.find({}).select("firstname lastname salary").sort({'salary' : 'desc'});  
   
   try {
-    console.log(employees[0].surname)
+    console.log(employees[0].surname) //Alias for lastname
     res.status(200).send(employees);
   } catch (err) {
     res.status(500).send(err);
@@ -42,10 +42,10 @@ app.get('/employees/firstname/:name', async (req, res) => {
   const employees = await employeeModel.find({firstname : name});
   
   //Using Virtual Field Name
-  //console.log(employees[0].fullname)
+  console.log(employees[0].fullname)
 
   //Using Instance method
-  //console.log(employees[0].getFullName())
+  console.log(employees[0].getFullName())
 
   //Using Static method
   //const employees = await employeeModel.getEmployeeByFirstName(name)
